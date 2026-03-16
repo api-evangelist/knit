@@ -1,0 +1,45 @@
+aid: knit
+name: Knit
+description: >-
+  Knit is a unified API platform for B2B products, AI agents, and MCP clients,
+  providing integrations infrastructure for HR, recruitment, and collaboration
+  tools. Knit manages cron jobs, rate limits, and retries out of the box for
+  predictable data syncing at scale.
+type: Index
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+tags:
+  - Unified API
+  - HR Integrations
+  - HRIS
+  - B2B
+url: >-
+  https://raw.githubusercontent.com/api-evangelist/knit/refs/heads/main/apis.yml
+created: '2026-03-16'
+modified: '2026-03-16'
+specificationVersion: '0.19'
+apis:
+  - aid: knit:unified-api
+    name: Knit Unified API
+    description: >-
+      Knit's unified API provides standardized endpoints for connecting with
+      multiple HR, recruitment, and chat tools in one integration.
+    humanURL: https://developers.getknit.dev/
+    tags:
+      - Unified API
+      - HR
+      - Integrations
+    properties:
+      - type: Documentation
+        url: https://developers.getknit.dev/
+      - type: Getting Started
+        url: https://developers.getknit.dev/
+common:
+  - type: Website
+    url: https://www.getknit.dev/
+  - type: Portal
+    url: https://developers.getknit.dev/
+  - type: Documentation
+    url: https://developers.getknit.dev/
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com
