@@ -8,10 +8,10 @@ description: >-
 type: Index
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 tags:
-  - Unified API
+  - B2B
   - HR Integrations
   - HRIS
-  - B2B
+  - Unified API
 url: >-
   https://raw.githubusercontent.com/api-evangelist/knit/refs/heads/main/apis.yml
 created: '2026-03-16'
@@ -25,9 +25,9 @@ apis:
       multiple HR, recruitment, and chat tools in one integration.
     humanURL: https://developers.getknit.dev/
     tags:
-      - Unified API
       - HR
       - Integrations
+      - Unified API
     properties:
       - type: Documentation
         url: https://developers.getknit.dev/
