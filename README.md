@@ -5,41 +5,54 @@ Knit is a unified API platform for B2B products, AI agents, and MCP clients, pro
 
 ## Scope
 
-- **Type:** Index 
-- **Position:** Consuming 
-- **Access:** 3rd-Party 
+- **Type:** Index
+- **Position:** Consumer
+- **Access:** 3rd-Party
 
 ## Tags:
 
- - Unified API, HR Integrations, HRIS, B2B
+ - B2B, HR Integrations, HRIS, Unified API
 
 ## Timestamps
 
-- **Created:** 2026-03-16 
-- **Modified:** 2026-03-16 
+- **Created:** 2026-03-16
+- **Modified:** 2026-04-18
 
 ## APIs
 
 ### Knit Unified API
-Knit's unified API provides standardized endpoints for connecting with multiple HR, recruitment, and chat tools in one integration.
+Knit's unified API provides standardized endpoints for connecting with multiple HR, recruitment, and chat tools in one integration. Access employee data, departments, locations, time-off records, job postings, and sync statuses through a single normalized interface.
 
 **Human URL:** [https://developers.getknit.dev/](https://developers.getknit.dev/)
 
+**Base URL:** https://api.getknit.dev/v1
 
 #### Tags:
 
- - Unified API, HR, Integrations
+ - Employees, HR, Integrations, Recruitment, Unified API
 
 #### Properties
 
 - [Documentation](https://developers.getknit.dev/)
+- [OpenAPI](openapi/knit-unified-api-openapi.yml)
 - [Getting Started](https://developers.getknit.dev/)
 
 ## Common Properties
 
-- [Website](https://www.getknit.dev/)
 - [Portal](https://developers.getknit.dev/)
 - [Documentation](https://developers.getknit.dev/)
+- [JSON Schema](json-schema/knit-unified-api-schema.json)
+- [JSON-LD](json-ld/knit-context.jsonld)
+
+## Artifacts
+
+- [OpenAPI](openapi/knit-unified-api-openapi.yml)
+- [JSON Schema](json-schema/knit-unified-api-schema.json)
+- [JSON-LD Context](json-ld/knit-context.jsonld)
+- [Examples](examples/unified-api-examples.yml)
+- [Spectral Ruleset](spectral/knit-ruleset.yml)
+- [Capabilities](capabilities/knit-capabilities.yml)
+- [Vocabulary](vocabulary/knit-vocabulary.yml)
 
 ## Maintainers
 

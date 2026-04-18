@@ -1,0 +1,41 @@
+name: Knit Unified API Vocabulary
+description: Vocabulary and taxonomy schema mapping operational and capability dimensions for Knit Unified API.
+domains:
+  - name: HR Data Management
+    concepts:
+      - term: Unified API
+        definition: A single API interface that normalizes data across multiple underlying provider APIs.
+      - term: HRIS
+        definition: Human Resource Information System - software for managing employee data and HR processes.
+        aliases:
+          - Human Resource Information System
+      - term: ATS
+        definition: Applicant Tracking System - software for managing recruitment and job applications.
+        aliases:
+          - Applicant Tracking System
+  - name: Employee Data
+    concepts:
+      - term: Employee
+        definition: A unified representation of a person employed by an organization, normalized across HRIS providers.
+      - term: Department
+        definition: An organizational unit within a company hierarchy.
+      - term: Location
+        definition: A physical office or work site within an organization.
+      - term: Time Off
+        definition: A leave or absence record for an employee including type, dates, and approval status.
+  - name: Integration Management
+    concepts:
+      - term: Integration
+        definition: A connected HRIS or ATS provider linked to a Knit account.
+      - term: Data Sync
+        definition: The process of fetching and normalizing data from a connected provider.
+      - term: Incremental Sync
+        definition: A sync that only retrieves records modified since the last sync.
+      - term: Webhook
+        definition: A push notification triggered when data changes in a connected provider.
+tags:
+  - B2B
+  - HR Integrations
+  - HRIS
+  - Recruitment
+  - Unified API

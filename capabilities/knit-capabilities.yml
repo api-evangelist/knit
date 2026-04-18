@@ -1,0 +1,63 @@
+name: Knit Unified API Capabilities
+description: Shared per-API capability definitions and workflow compositions for Knit Unified API.
+capabilities:
+  - name: Employee Data Access
+    description: Access and manage unified employee data across connected HRIS platforms.
+    apis:
+      - knit:unified-api
+    operations:
+      - listEmployees
+      - getEmployee
+      - listDepartments
+      - listLocations
+    workflows:
+      - name: Employee Directory Sync
+        description: Synchronize employee data from connected HRIS platforms.
+        steps:
+          - operation: listIntegrations
+            description: Check connected HRIS integrations and their sync status.
+          - operation: triggerSync
+            description: Trigger a fresh sync for the target integration.
+          - operation: listEmployees
+            description: Retrieve the updated employee list.
+          - operation: listDepartments
+            description: Retrieve department hierarchy.
+
+  - name: Leave Management
+    description: Access time-off and leave data across connected platforms.
+    apis:
+      - knit:unified-api
+    operations:
+      - listTimeOff
+    workflows:
+      - name: Employee Leave Report
+        description: Generate a leave report for a specific employee.
+        steps:
+          - operation: getEmployee
+            description: Retrieve employee details.
+          - operation: listTimeOff
+            description: Retrieve time-off records for the employee.
+
+  - name: Recruitment Data Access
+    description: Access job posting data from connected ATS platforms.
+    apis:
+      - knit:unified-api
+    operations:
+      - listJobs
+    workflows:
+      - name: Open Positions Review
+        description: Review open job postings across all connected ATS platforms.
+        steps:
+          - operation: listIntegrations
+            description: Check connected ATS integrations.
+          - operation: listJobs
+            description: List all job postings.
+
+  - name: Integration Management
+    description: Manage connected integrations and monitor sync operations.
+    apis:
+      - knit:unified-api
+    operations:
+      - listIntegrations
+      - listSyncs
+      - triggerSync

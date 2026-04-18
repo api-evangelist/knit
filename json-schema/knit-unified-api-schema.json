@@ -1,0 +1,91 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/api-evangelist/knit/json-schema/knit-unified-api-schema.json",
+  "title": "Knit Unified API Resources",
+  "description": "JSON Schema for Knit Unified API resources.",
+  "definitions": {
+    "Employee": {
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "first_name": { "type": "string" },
+        "last_name": { "type": "string" },
+        "email": { "type": "string", "format": "email" },
+        "job_title": { "type": "string" },
+        "department": { "type": "string" },
+        "location": { "type": "string" },
+        "employment_status": {
+          "type": "string",
+          "enum": ["active", "inactive", "terminated"]
+        },
+        "start_date": { "type": "string", "format": "date" },
+        "termination_date": { "type": ["string", "null"], "format": "date" },
+        "manager_id": { "type": ["string", "null"] },
+        "integration_id": { "type": "string" }
+      },
+      "required": ["id", "first_name", "last_name"]
+    },
+    "Department": {
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "parent_id": { "type": ["string", "null"] },
+        "integration_id": { "type": "string" }
+      },
+      "required": ["id", "name"]
+    },
+    "Location": {
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "address": { "type": "string" },
+        "city": { "type": "string" },
+        "state": { "type": "string" },
+        "country": { "type": "string" },
+        "integration_id": { "type": "string" }
+      },
+      "required": ["id", "name"]
+    },
+    "TimeOff": {
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "employee_id": { "type": "string" },
+        "type": { "type": "string" },
+        "status": {
+          "type": "string",
+          "enum": ["pending", "approved", "denied", "cancelled"]
+        },
+        "start_date": { "type": "string", "format": "date" },
+        "end_date": { "type": "string", "format": "date" },
+        "integration_id": { "type": "string" }
+      },
+      "required": ["id", "employee_id"]
+    },
+    "Integration": {
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "provider": { "type": "string" },
+        "status": {
+          "type": "string",
+          "enum": ["active", "inactive", "error"]
+        },
+        "created_at": { "type": "string", "format": "date-time" },
+        "last_synced_at": { "type": ["string", "null"], "format": "date-time" }
+      },
+      "required": ["id", "provider"]
+    },
+    "Pagination": {
+      "type": "object",
+      "properties": {
+        "page": { "type": "integer" },
+        "page_size": { "type": "integer" },
+        "total_count": { "type": "integer" },
+        "total_pages": { "type": "integer" }
+      }
+    }
+  }
+}

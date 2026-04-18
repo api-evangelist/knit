@@ -1,0 +1,63 @@
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "knit": "https://api.getknit.dev/v1/",
+    "Employee": {
+      "@id": "knit:Employee",
+      "@context": {
+        "id": "schema:identifier",
+        "first_name": "schema:givenName",
+        "last_name": "schema:familyName",
+        "email": "schema:email",
+        "job_title": "schema:jobTitle",
+        "department": "schema:department",
+        "location": "schema:workLocation",
+        "employment_status": "knit:employmentStatus",
+        "start_date": "schema:startDate",
+        "termination_date": "knit:terminationDate",
+        "manager_id": "knit:managerId",
+        "integration_id": "knit:integrationId"
+      }
+    },
+    "Department": {
+      "@id": "knit:Department",
+      "@context": {
+        "id": "schema:identifier",
+        "name": "schema:name",
+        "parent_id": "knit:parentDepartmentId"
+      }
+    },
+    "Location": {
+      "@id": "knit:Location",
+      "@context": {
+        "id": "schema:identifier",
+        "name": "schema:name",
+        "address": "schema:streetAddress",
+        "city": "schema:addressLocality",
+        "state": "schema:addressRegion",
+        "country": "schema:addressCountry"
+      }
+    },
+    "TimeOff": {
+      "@id": "knit:TimeOff",
+      "@context": {
+        "id": "schema:identifier",
+        "employee_id": "knit:employeeId",
+        "type": "knit:leaveType",
+        "status": "knit:leaveStatus",
+        "start_date": "schema:startDate",
+        "end_date": "schema:endDate"
+      }
+    },
+    "Integration": {
+      "@id": "knit:Integration",
+      "@context": {
+        "id": "schema:identifier",
+        "provider": "schema:name",
+        "status": "knit:integrationStatus",
+        "created_at": "schema:dateCreated",
+        "last_synced_at": "knit:lastSyncedAt"
+      }
+    }
+  }
+}

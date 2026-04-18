@@ -1,0 +1,124 @@
+title: Knit Unified API Examples
+description: Example request/response pairs for the Knit Unified API.
+examples:
+  - name: List Employees
+    operation: listEmployees
+    request:
+      method: GET
+      path: /v1/employees?page=1&page_size=10
+      headers:
+        Authorization: Bearer YOUR_API_KEY
+    response:
+      status: 200
+      body:
+        data:
+          - id: emp-001
+            first_name: Jane
+            last_name: Doe
+            email: jane.doe@example.com
+            job_title: Software Engineer
+            department: Engineering
+            location: San Francisco
+            employment_status: active
+            start_date: '2024-03-15'
+            termination_date: null
+            manager_id: emp-010
+            integration_id: int-bamboohr-001
+        pagination:
+          page: 1
+          page_size: 10
+          total_count: 42
+          total_pages: 5
+
+  - name: Get Employee
+    operation: getEmployee
+    request:
+      method: GET
+      path: /v1/employees/emp-001
+      headers:
+        Authorization: Bearer YOUR_API_KEY
+    response:
+      status: 200
+      body:
+        data:
+          id: emp-001
+          first_name: Jane
+          last_name: Doe
+          email: jane.doe@example.com
+          job_title: Software Engineer
+          department: Engineering
+          location: San Francisco
+          employment_status: active
+          start_date: '2024-03-15'
+          termination_date: null
+          manager_id: emp-010
+          integration_id: int-bamboohr-001
+
+  - name: List Departments
+    operation: listDepartments
+    request:
+      method: GET
+      path: /v1/departments
+      headers:
+        Authorization: Bearer YOUR_API_KEY
+    response:
+      status: 200
+      body:
+        data:
+          - id: dept-001
+            name: Engineering
+            parent_id: null
+            integration_id: int-bamboohr-001
+          - id: dept-002
+            name: Product
+            parent_id: null
+            integration_id: int-bamboohr-001
+
+  - name: List Time Off
+    operation: listTimeOff
+    request:
+      method: GET
+      path: /v1/time-off?employee_id=emp-001
+      headers:
+        Authorization: Bearer YOUR_API_KEY
+    response:
+      status: 200
+      body:
+        data:
+          - id: to-001
+            employee_id: emp-001
+            type: Vacation
+            status: approved
+            start_date: '2026-05-01'
+            end_date: '2026-05-05'
+            integration_id: int-bamboohr-001
+
+  - name: List Integrations
+    operation: listIntegrations
+    request:
+      method: GET
+      path: /v1/integrations
+      headers:
+        Authorization: Bearer YOUR_API_KEY
+    response:
+      status: 200
+      body:
+        data:
+          - id: int-bamboohr-001
+            provider: BambooHR
+            status: active
+            created_at: '2026-01-15T10:30:00Z'
+            last_synced_at: '2026-04-18T08:00:00Z'
+
+  - name: Trigger Sync
+    operation: triggerSync
+    request:
+      method: POST
+      path: /v1/syncs
+      headers:
+        Authorization: Bearer YOUR_API_KEY
+        Content-Type: application/json
+      body:
+        integration_id: int-bamboohr-001
+    response:
+      status: 200

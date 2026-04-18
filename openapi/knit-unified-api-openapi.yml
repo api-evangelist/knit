@@ -1,0 +1,463 @@
+openapi: 3.1.0
+info:
+  title: Knit Unified API
+  description: >-
+    Knit provides a unified API for B2B products, AI agents, and MCP clients to
+    integrate with HR, recruitment, and collaboration tools. Knit handles cron jobs,
+    rate limits, and retries for predictable data syncing at scale. The API provides
+    standardized endpoints for accessing employee data, time-off, departments,
+    locations, and more across multiple HRIS, ATS, and communication platforms.
+  version: v1
+  contact:
+    name: Knit Developer Support
+    url: https://developers.getknit.dev/
+  license:
+    name: Knit Terms of Service
+    url: https://www.getknit.dev/terms
+servers:
+  - url: https://api.getknit.dev/v1
+    description: Knit API production endpoint
+security:
+  - apiKey: []
+tags:
+  - name: Employees
+    description: Operations for managing employee data across connected HRIS platforms.
+  - name: Departments
+    description: Operations for managing department data across connected platforms.
+  - name: Locations
+    description: Operations for managing location/office data.
+  - name: Time Off
+    description: Operations for managing time off and leave data.
+  - name: Jobs
+    description: Operations for managing job postings and applications via ATS integrations.
+  - name: Integrations
+    description: Operations for managing connected integrations.
+  - name: Syncs
+    description: Operations for monitoring sync status and triggering syncs.
+paths:
+  /employees:
+    get:
+      operationId: listEmployees
+      summary: List Employees
+      description: >-
+        Returns a list of employees from connected HRIS integrations with
+        standardized fields.
+      tags:
+        - Employees
+      parameters:
+        - name: integration_id
+          in: query
+          description: Filter by integration ID.
+          required: false
+          schema:
+            type: string
+        - name: page
+          in: query
+          description: Page number for pagination.
+          required: false
+          schema:
+            type: integer
+        - name: page_size
+          in: query
+          description: Number of records per page.
+          required: false
+          schema:
+            type: integer
+        - name: updated_after
+          in: query
+          description: Filter employees updated after this timestamp.
+          required: false
+          schema:
+            type: string
+            format: date-time
+      responses:
+        '200':
+          description: A list of employees.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Employee'
+                  pagination:
+                    $ref: '#/components/schemas/Pagination'
+        '401':
+          description: Unauthorized.
+        '500':
+          description: Internal Server Error.
+  /employees/{id}:
+    get:
+      operationId: getEmployee
+      summary: Get Employee
+      description: Returns details for a specific employee.
+      tags:
+        - Employees
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Employee details.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/Employee'
+        '404':
+          description: Employee not found.
+  /departments:
+    get:
+      operationId: listDepartments
+      summary: List Departments
+      description: Returns a list of departments from connected integrations.
+      tags:
+        - Departments
+      parameters:
+        - name: integration_id
+          in: query
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          description: A list of departments.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Department'
+        '401':
+          description: Unauthorized.
+  /locations:
+    get:
+      operationId: listLocations
+      summary: List Locations
+      description: Returns a list of office locations from connected integrations.
+      tags:
+        - Locations
+      parameters:
+        - name: integration_id
+          in: query
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          description: A list of locations.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Location'
+        '401':
+          description: Unauthorized.
+  /time-off:
+    get:
+      operationId: listTimeOff
+      summary: List Time Off
+      description: Returns a list of time-off entries from connected integrations.
+      tags:
+        - Time Off
+      parameters:
+        - name: integration_id
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: employee_id
+          in: query
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          description: A list of time-off entries.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/TimeOff'
+        '401':
+          description: Unauthorized.
+  /jobs:
+    get:
+      operationId: listJobs
+      summary: List Jobs
+      description: Returns a list of job postings from connected ATS integrations.
+      tags:
+        - Jobs
+      parameters:
+        - name: integration_id
+          in: query
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          description: A list of jobs.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Job'
+        '401':
+          description: Unauthorized.
+  /integrations:
+    get:
+      operationId: listIntegrations
+      summary: List Integrations
+      description: Returns a list of connected integrations for your account.
+      tags:
+        - Integrations
+      responses:
+        '200':
+          description: A list of integrations.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Integration'
+        '401':
+          description: Unauthorized.
+  /syncs:
+    get:
+      operationId: listSyncs
+      summary: List Syncs
+      description: Returns a list of sync operations and their statuses.
+      tags:
+        - Syncs
+      responses:
+        '200':
+          description: A list of syncs.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Sync'
+        '401':
+          description: Unauthorized.
+    post:
+      operationId: triggerSync
+      summary: Trigger Sync
+      description: Triggers a new data sync for a connected integration.
+      tags:
+        - Syncs
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - integration_id
+              properties:
+                integration_id:
+                  type: string
+                  description: The integration to sync.
+      responses:
+        '200':
+          description: Sync triggered successfully.
+        '400':
+          description: Bad Request.
+        '401':
+          description: Unauthorized.
+components:
+  securitySchemes:
+    apiKey:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: API key authentication via Bearer token.
+  schemas:
+    Employee:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique identifier for the employee.
+        first_name:
+          type: string
+        last_name:
+          type: string
+        email:
+          type: string
+          format: email
+        job_title:
+          type: string
+        department:
+          type: string
+        location:
+          type: string
+        employment_status:
+          type: string
+          enum:
+            - active
+            - inactive
+            - terminated
+        start_date:
+          type: string
+          format: date
+        termination_date:
+          type: string
+          format: date
+          nullable: true
+        manager_id:
+          type: string
+          nullable: true
+        integration_id:
+          type: string
+    Department:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        parent_id:
+          type: string
+          nullable: true
+        integration_id:
+          type: string
+    Location:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        address:
+          type: string
+        city:
+          type: string
+        state:
+          type: string
+        country:
+          type: string
+        integration_id:
+          type: string
+    TimeOff:
+      type: object
+      properties:
+        id:
+          type: string
+        employee_id:
+          type: string
+        type:
+          type: string
+        status:
+          type: string
+          enum:
+            - pending
+            - approved
+            - denied
+            - cancelled
+        start_date:
+          type: string
+          format: date
+        end_date:
+          type: string
+          format: date
+        integration_id:
+          type: string
+    Job:
+      type: object
+      properties:
+        id:
+          type: string
+        title:
+          type: string
+        description:
+          type: string
+        status:
+          type: string
+        department:
+          type: string
+        location:
+          type: string
+        integration_id:
+          type: string
+    Integration:
+      type: object
+      properties:
+        id:
+          type: string
+        provider:
+          type: string
+          description: The HRIS/ATS provider name.
+        status:
+          type: string
+          enum:
+            - active
+            - inactive
+            - error
+        created_at:
+          type: string
+          format: date-time
+        last_synced_at:
+          type: string
+          format: date-time
+          nullable: true
+    Sync:
+      type: object
+      properties:
+        id:
+          type: string
+        integration_id:
+          type: string
+        status:
+          type: string
+          enum:
+            - pending
+            - in_progress
+            - completed
+            - failed
+        started_at:
+          type: string
+          format: date-time
+        completed_at:
+          type: string
+          format: date-time
+          nullable: true
+    Pagination:
+      type: object
+      properties:
+        page:
+          type: integer
+        page_size:
+          type: integer
+        total_count:
+          type: integer
+        total_pages:
+          type: integer

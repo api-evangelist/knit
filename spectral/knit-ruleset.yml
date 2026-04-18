@@ -1,0 +1,59 @@
+extends:
+  - spectral:oas
+rules:
+  knit-operation-summary-title-case:
+    description: Operation summaries must use Title Case.
+    severity: warn
+    given: $.paths[*][*].summary
+    then:
+      function: pattern
+      functionOptions:
+        match: ^[A-Z][a-zA-Z]+(\\s[A-Z][a-zA-Z]+)*$
+
+  knit-data-envelope:
+    description: Response bodies should use the data envelope pattern.
+    severity: warn
+    given: $.paths[*][*].responses['200'].content['application/json'].schema.properties
+    then:
+      field: data
+      function: truthy
+
+  knit-pagination:
+    description: List endpoints should include pagination in responses.
+    severity: info
+    given: $.paths[*].get.responses['200'].content['application/json'].schema.properties
+    then:
+      field: pagination
+      function: truthy
+
+  knit-auth-required:
+    description: All endpoints must require authentication.
+    severity: error
+    given: $.paths[*][*]
+    then:
+      - field: security
+        function: truthy
+
+  knit-operation-id-required:
+    description: All operations must have an operationId.
+    severity: error
+    given: $.paths[*][*]
+    then:
+      field: operationId
+      function: truthy
+
+  knit-integration-id-filter:
+    description: List endpoints should support integration_id filtering.
+    severity: info
+    given: $.paths[*].get.parameters[*]
+    then:
+      field: name
+      function: truthy
+
+  knit-description-required:
+    description: All operations must have a description.
+    severity: error
+    given: $.paths[*][*]
+    then:
+      field: description
+      function: truthy
