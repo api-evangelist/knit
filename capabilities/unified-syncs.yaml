@@ -1,0 +1,107 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Knit Unified API — Syncs
+  description: 'Knit Unified API — Syncs. 2 operations. Lead operation: List Syncs. Self-contained Naftiko capability covering
+    one Knit business surface.'
+  tags:
+  - Knit
+  - Syncs
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    KNIT_API_KEY: KNIT_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: unified-syncs
+    baseUri: https://api.getknit.dev/v1
+    description: Knit Unified API — Syncs business capability. Self-contained, no shared references.
+    resources:
+    - name: syncs
+      path: /syncs
+      operations:
+      - name: listsyncs
+        method: GET
+        description: List Syncs
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: triggersync
+        method: POST
+        description: Trigger Sync
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    authentication:
+      type: apikey
+      key: Authorization
+      value: '{{env.KNIT_API_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: unified-syncs-rest
+    port: 8080
+    description: REST adapter for Knit Unified API — Syncs. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/syncs
+      name: syncs
+      description: REST surface for syncs.
+      operations:
+      - method: GET
+        name: listsyncs
+        description: List Syncs
+        call: unified-syncs.listsyncs
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: triggersync
+        description: Trigger Sync
+        call: unified-syncs.triggersync
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: unified-syncs-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Knit Unified API — Syncs. One tool per consumed operation, routed inline through this capability's
+      consumes block.
+    tools:
+    - name: list-syncs
+      description: List Syncs
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: unified-syncs.listsyncs
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: trigger-sync
+      description: Trigger Sync
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: unified-syncs.triggersync
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

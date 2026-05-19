@@ -1,0 +1,80 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Knit Unified API — Jobs
+  description: 'Knit Unified API — Jobs. 1 operations. Lead operation: List Jobs. Self-contained Naftiko capability covering
+    one Knit business surface.'
+  tags:
+  - Knit
+  - Jobs
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    KNIT_API_KEY: KNIT_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: unified-jobs
+    baseUri: https://api.getknit.dev/v1
+    description: Knit Unified API — Jobs business capability. Self-contained, no shared references.
+    resources:
+    - name: jobs
+      path: /jobs
+      operations:
+      - name: listjobs
+        method: GET
+        description: List Jobs
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: integration_id
+          in: query
+          type: string
+    authentication:
+      type: apikey
+      key: Authorization
+      value: '{{env.KNIT_API_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: unified-jobs-rest
+    port: 8080
+    description: REST adapter for Knit Unified API — Jobs. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/jobs
+      name: jobs
+      description: REST surface for jobs.
+      operations:
+      - method: GET
+        name: listjobs
+        description: List Jobs
+        call: unified-jobs.listjobs
+        with:
+          integration_id: rest.integration_id
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: unified-jobs-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Knit Unified API — Jobs. One tool per consumed operation, routed inline through this capability's
+      consumes block.
+    tools:
+    - name: list-jobs
+      description: List Jobs
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: unified-jobs.listjobs
+      with:
+        integration_id: tools.integration_id
+      outputParameters:
+      - type: object
+        mapping: $.
