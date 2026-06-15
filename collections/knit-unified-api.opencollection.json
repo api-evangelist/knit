@@ -1,0 +1,243 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Knit Unified API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Employees",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Employees",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.getknit.dev/v1/employees",
+            "params": [
+              {
+                "name": "integration_id",
+                "value": "",
+                "type": "query",
+                "description": "Filter by integration ID."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number for pagination."
+              },
+              {
+                "name": "page_size",
+                "value": "",
+                "type": "query",
+                "description": "Number of records per page."
+              },
+              {
+                "name": "updated_after",
+                "value": "",
+                "type": "query",
+                "description": "Filter employees updated after this timestamp."
+              }
+            ]
+          },
+          "docs": "Returns a list of employees from connected HRIS integrations with standardized fields."
+        },
+        {
+          "info": {
+            "name": "Get Employee",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.getknit.dev/v1/employees/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Returns details for a specific employee."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Departments",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Departments",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.getknit.dev/v1/departments",
+            "params": [
+              {
+                "name": "integration_id",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Returns a list of departments from connected integrations."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Locations",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Locations",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.getknit.dev/v1/locations",
+            "params": [
+              {
+                "name": "integration_id",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Returns a list of office locations from connected integrations."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Time Off",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Time Off",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.getknit.dev/v1/time-off",
+            "params": [
+              {
+                "name": "integration_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "employee_id",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Returns a list of time-off entries from connected integrations."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Jobs",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Jobs",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.getknit.dev/v1/jobs",
+            "params": [
+              {
+                "name": "integration_id",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Returns a list of job postings from connected ATS integrations."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Integrations",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Integrations",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.getknit.dev/v1/integrations"
+          },
+          "docs": "Returns a list of connected integrations for your account."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Syncs",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Syncs",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.getknit.dev/v1/syncs"
+          },
+          "docs": "Returns a list of sync operations and their statuses."
+        },
+        {
+          "info": {
+            "name": "Trigger Sync",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.getknit.dev/v1/syncs",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Triggers a new data sync for a connected integration."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
