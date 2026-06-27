@@ -80,7 +80,7 @@ common:
     url: json-schema/knit-unified-api-schema.json
   - type: JSONLD
     url: json-ld/knit-context.jsonld
-  - type: LLMsTxt
+  - type: LlmsText
     url: https://developers.getknit.dev/llms.txt
 maintainers:
   - FN: Kin Lane
