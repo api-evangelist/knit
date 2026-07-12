@@ -41,6 +41,10 @@ apis:
       - type: Support
         url: https://www.getknit.dev/
 common:
+  - type: DomainSecurity
+    url: security/knit-domain-security.yml
+  - type: Authentication
+    url: authentication/knit-authentication.yml
   - type: GitHubOrganization
     url: https://github.com/knitapi
   - type: LinkedIn
@@ -82,6 +86,8 @@ common:
     url: json-ld/knit-context.jsonld
   - type: LlmsText
     url: https://developers.getknit.dev/llms.txt
+  - url: https://www.getknit.dev/blog/rss.xml
+    type: Blog
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
