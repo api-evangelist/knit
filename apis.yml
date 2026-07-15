@@ -41,6 +41,8 @@ apis:
       - type: Support
         url: https://www.getknit.dev/
 common:
+  - type: AgenticAccess
+    url: agentic-access/knit-agentic-access.yml
   - type: DomainSecurity
     url: security/knit-domain-security.yml
   - type: Authentication
