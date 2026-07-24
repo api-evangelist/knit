@@ -1,0 +1,70 @@
+openapi: 3.1.0
+info:
+  title: Knit Unified Departments Integrations API
+  description: Knit provides a unified API for B2B products, AI agents, and MCP clients to integrate with HR, recruitment, and collaboration tools. Knit handles cron jobs, rate limits, and retries for predictable data syncing at scale. The API provides standardized endpoints for accessing employee data, time-off, departments, locations, and more across multiple HRIS, ATS, and communication platforms.
+  version: v1
+  contact:
+    name: Knit Developer Support
+    url: https://developers.getknit.dev/
+  license:
+    name: Knit Terms of Service
+    url: https://www.getknit.dev/terms
+servers:
+- url: https://api.getknit.dev/v1
+  description: Knit API production endpoint
+security:
+- apiKey: []
+tags:
+- name: Integrations
+  description: Operations for managing connected integrations.
+paths:
+  /integrations:
+    get:
+      operationId: listIntegrations
+      summary: List Integrations
+      description: Returns a list of connected integrations for your account.
+      tags:
+      - Integrations
+      responses:
+        '200':
+          description: A list of integrations.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Integration'
+        '401':
+          description: Unauthorized.
+components:
+  schemas:
+    Integration:
+      type: object
+      properties:
+        id:
+          type: string
+        provider:
+          type: string
+          description: The HRIS/ATS provider name.
+        status:
+          type: string
+          enum:
+          - active
+          - inactive
+          - error
+        created_at:
+          type: string
+          format: date-time
+        last_synced_at:
+          type: string
+          format: date-time
+          nullable: true
+  securitySchemes:
+    apiKey:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: API key authentication via Bearer token.

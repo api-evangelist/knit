@@ -1,0 +1,95 @@
+openapi: 3.1.0
+info:
+  title: Knit Unified Departments Syncs API
+  description: Knit provides a unified API for B2B products, AI agents, and MCP clients to integrate with HR, recruitment, and collaboration tools. Knit handles cron jobs, rate limits, and retries for predictable data syncing at scale. The API provides standardized endpoints for accessing employee data, time-off, departments, locations, and more across multiple HRIS, ATS, and communication platforms.
+  version: v1
+  contact:
+    name: Knit Developer Support
+    url: https://developers.getknit.dev/
+  license:
+    name: Knit Terms of Service
+    url: https://www.getknit.dev/terms
+servers:
+- url: https://api.getknit.dev/v1
+  description: Knit API production endpoint
+security:
+- apiKey: []
+tags:
+- name: Syncs
+  description: Operations for monitoring sync status and triggering syncs.
+paths:
+  /syncs:
+    get:
+      operationId: listSyncs
+      summary: List Syncs
+      description: Returns a list of sync operations and their statuses.
+      tags:
+      - Syncs
+      responses:
+        '200':
+          description: A list of syncs.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Sync'
+        '401':
+          description: Unauthorized.
+    post:
+      operationId: triggerSync
+      summary: Trigger Sync
+      description: Triggers a new data sync for a connected integration.
+      tags:
+      - Syncs
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - integration_id
+              properties:
+                integration_id:
+                  type: string
+                  description: The integration to sync.
+      responses:
+        '200':
+          description: Sync triggered successfully.
+        '400':
+          description: Bad Request.
+        '401':
+          description: Unauthorized.
+components:
+  schemas:
+    Sync:
+      type: object
+      properties:
+        id:
+          type: string
+        integration_id:
+          type: string
+        status:
+          type: string
+          enum:
+          - pending
+          - in_progress
+          - completed
+          - failed
+        started_at:
+          type: string
+          format: date-time
+        completed_at:
+          type: string
+          format: date-time
+          nullable: true
+  securitySchemes:
+    apiKey:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: API key authentication via Bearer token.

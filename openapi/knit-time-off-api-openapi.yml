@@ -1,0 +1,84 @@
+openapi: 3.1.0
+info:
+  title: Knit Unified Departments Time Off API
+  description: Knit provides a unified API for B2B products, AI agents, and MCP clients to integrate with HR, recruitment, and collaboration tools. Knit handles cron jobs, rate limits, and retries for predictable data syncing at scale. The API provides standardized endpoints for accessing employee data, time-off, departments, locations, and more across multiple HRIS, ATS, and communication platforms.
+  version: v1
+  contact:
+    name: Knit Developer Support
+    url: https://developers.getknit.dev/
+  license:
+    name: Knit Terms of Service
+    url: https://www.getknit.dev/terms
+servers:
+- url: https://api.getknit.dev/v1
+  description: Knit API production endpoint
+security:
+- apiKey: []
+tags:
+- name: Time Off
+  description: Operations for managing time off and leave data.
+paths:
+  /time-off:
+    get:
+      operationId: listTimeOff
+      summary: List Time Off
+      description: Returns a list of time-off entries from connected integrations.
+      tags:
+      - Time Off
+      parameters:
+      - name: integration_id
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: employee_id
+        in: query
+        required: false
+        schema:
+          type: string
+      responses:
+        '200':
+          description: A list of time-off entries.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/TimeOff'
+        '401':
+          description: Unauthorized.
+components:
+  schemas:
+    TimeOff:
+      type: object
+      properties:
+        id:
+          type: string
+        employee_id:
+          type: string
+        type:
+          type: string
+        status:
+          type: string
+          enum:
+          - pending
+          - approved
+          - denied
+          - cancelled
+        start_date:
+          type: string
+          format: date
+        end_date:
+          type: string
+          format: date
+        integration_id:
+          type: string
+  securitySchemes:
+    apiKey:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: API key authentication via Bearer token.

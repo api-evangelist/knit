@@ -1,0 +1,152 @@
+openapi: 3.1.0
+info:
+  title: Knit Unified Departments Employees API
+  description: Knit provides a unified API for B2B products, AI agents, and MCP clients to integrate with HR, recruitment, and collaboration tools. Knit handles cron jobs, rate limits, and retries for predictable data syncing at scale. The API provides standardized endpoints for accessing employee data, time-off, departments, locations, and more across multiple HRIS, ATS, and communication platforms.
+  version: v1
+  contact:
+    name: Knit Developer Support
+    url: https://developers.getknit.dev/
+  license:
+    name: Knit Terms of Service
+    url: https://www.getknit.dev/terms
+servers:
+- url: https://api.getknit.dev/v1
+  description: Knit API production endpoint
+security:
+- apiKey: []
+tags:
+- name: Employees
+  description: Operations for managing employee data across connected HRIS platforms.
+paths:
+  /employees:
+    get:
+      operationId: listEmployees
+      summary: List Employees
+      description: Returns a list of employees from connected HRIS integrations with standardized fields.
+      tags:
+      - Employees
+      parameters:
+      - name: integration_id
+        in: query
+        description: Filter by integration ID.
+        required: false
+        schema:
+          type: string
+      - name: page
+        in: query
+        description: Page number for pagination.
+        required: false
+        schema:
+          type: integer
+      - name: page_size
+        in: query
+        description: Number of records per page.
+        required: false
+        schema:
+          type: integer
+      - name: updated_after
+        in: query
+        description: Filter employees updated after this timestamp.
+        required: false
+        schema:
+          type: string
+          format: date-time
+      responses:
+        '200':
+          description: A list of employees.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Employee'
+                  pagination:
+                    $ref: '#/components/schemas/Pagination'
+        '401':
+          description: Unauthorized.
+        '500':
+          description: Internal Server Error.
+  /employees/{id}:
+    get:
+      operationId: getEmployee
+      summary: Get Employee
+      description: Returns details for a specific employee.
+      tags:
+      - Employees
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Employee details.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/Employee'
+        '404':
+          description: Employee not found.
+components:
+  schemas:
+    Employee:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique identifier for the employee.
+        first_name:
+          type: string
+        last_name:
+          type: string
+        email:
+          type: string
+          format: email
+        job_title:
+          type: string
+        department:
+          type: string
+        location:
+          type: string
+        employment_status:
+          type: string
+          enum:
+          - active
+          - inactive
+          - terminated
+        start_date:
+          type: string
+          format: date
+        termination_date:
+          type: string
+          format: date
+          nullable: true
+        manager_id:
+          type: string
+          nullable: true
+        integration_id:
+          type: string
+    Pagination:
+      type: object
+      properties:
+        page:
+          type: integer
+        page_size:
+          type: integer
+        total_count:
+          type: integer
+        total_pages:
+          type: integer
+  securitySchemes:
+    apiKey:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: API key authentication via Bearer token.
