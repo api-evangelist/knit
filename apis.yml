@@ -5,7 +5,20 @@ description: >-
   HR, recruitment, and collaboration tools. Knit manages cron jobs, rate limits, and retries out of the box for
   predictable data syncing at scale.
 type: Index
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: freemium
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Freemium · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/knit.png
 tags:
   - B2B
   - HR Integrations
@@ -16,30 +29,104 @@ created: '2026-03-16'
 modified: '2026-05-19'
 specificationVersion: '0.19'
 apis:
-  - aid: knit:unified-api
-    name: Knit Unified API
-    description: >-
-      Knit's unified API provides standardized endpoints for connecting with multiple HR, recruitment, and chat tools in
-      one integration. Access employee data, departments, locations, time-off records, job postings, and sync statuses
-      through a single normalized interface.
-    humanURL: https://developers.getknit.dev/
-    baseURL: https://api.getknit.dev/v1
-    tags:
-      - Employees
-      - HR
-      - Integrations
-      - Recruitment
-      - Unified API
-    properties:
-      - type: Documentation
-        url: https://developers.getknit.dev/
-      - type: OpenAPI
-        url: openapi/knit-unified-api-openapi.yml
-      - type: GettingStarted
-        url: https://developers.getknit.dev/
-    contact:
-      - type: Support
-        url: https://www.getknit.dev/
+- aid: knit:knit-departments-api
+  name: Knit Departments API
+  description: Operations for managing department data across connected platforms.
+  humanURL: https://developers.getknit.dev/
+  baseURL: https://api.getknit.dev/v1
+  tags:
+  - Departments
+  properties:
+  - type: OpenAPI
+    url: openapi/knit-departments-api-openapi.yml
+  - type: Documentation
+    url: https://developers.getknit.dev/
+  - type: GettingStarted
+    url: https://developers.getknit.dev/
+- aid: knit:knit-employees-api
+  name: Knit Employees API
+  description: Operations for managing employee data across connected HRIS platforms.
+  humanURL: https://developers.getknit.dev/
+  baseURL: https://api.getknit.dev/v1
+  tags:
+  - Employees
+  properties:
+  - type: OpenAPI
+    url: openapi/knit-employees-api-openapi.yml
+  - type: Documentation
+    url: https://developers.getknit.dev/
+  - type: GettingStarted
+    url: https://developers.getknit.dev/
+- aid: knit:knit-integrations-api
+  name: Knit Integrations API
+  description: Operations for managing connected integrations.
+  humanURL: https://developers.getknit.dev/
+  baseURL: https://api.getknit.dev/v1
+  tags:
+  - Integrations
+  properties:
+  - type: OpenAPI
+    url: openapi/knit-integrations-api-openapi.yml
+  - type: Documentation
+    url: https://developers.getknit.dev/
+  - type: GettingStarted
+    url: https://developers.getknit.dev/
+- aid: knit:knit-jobs-api
+  name: Knit Jobs API
+  description: Operations for managing job postings and applications via ATS integrations.
+  humanURL: https://developers.getknit.dev/
+  baseURL: https://api.getknit.dev/v1
+  tags:
+  - Jobs
+  properties:
+  - type: OpenAPI
+    url: openapi/knit-jobs-api-openapi.yml
+  - type: Documentation
+    url: https://developers.getknit.dev/
+  - type: GettingStarted
+    url: https://developers.getknit.dev/
+- aid: knit:knit-locations-api
+  name: Knit Locations API
+  description: Operations for managing location/office data.
+  humanURL: https://developers.getknit.dev/
+  baseURL: https://api.getknit.dev/v1
+  tags:
+  - Locations
+  properties:
+  - type: OpenAPI
+    url: openapi/knit-locations-api-openapi.yml
+  - type: Documentation
+    url: https://developers.getknit.dev/
+  - type: GettingStarted
+    url: https://developers.getknit.dev/
+- aid: knit:knit-syncs-api
+  name: Knit Syncs API
+  description: Operations for monitoring sync status and triggering syncs.
+  humanURL: https://developers.getknit.dev/
+  baseURL: https://api.getknit.dev/v1
+  tags:
+  - Syncs
+  properties:
+  - type: OpenAPI
+    url: openapi/knit-syncs-api-openapi.yml
+  - type: Documentation
+    url: https://developers.getknit.dev/
+  - type: GettingStarted
+    url: https://developers.getknit.dev/
+- aid: knit:knit-time-off-api
+  name: Knit Time Off API
+  description: Operations for managing time off and leave data.
+  humanURL: https://developers.getknit.dev/
+  baseURL: https://api.getknit.dev/v1
+  tags:
+  - Time Off
+  properties:
+  - type: OpenAPI
+    url: openapi/knit-time-off-api-openapi.yml
+  - type: Documentation
+    url: https://developers.getknit.dev/
+  - type: GettingStarted
+    url: https://developers.getknit.dev/
 common:
   - type: AgenticAccess
     url: agentic-access/knit-agentic-access.yml
