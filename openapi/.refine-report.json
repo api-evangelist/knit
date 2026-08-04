@@ -1,0 +1,26 @@
+{
+  "provider": "knit",
+  "sources": [
+    "knit-departments-api-openapi.yml",
+    "knit-employees-api-openapi.yml",
+    "knit-integrations-api-openapi.yml",
+    "knit-jobs-api-openapi.yml",
+    "knit-locations-api-openapi.yml",
+    "knit-syncs-api-openapi.yml",
+    "knit-time-off-api-openapi.yml"
+  ],
+  "outputs": [
+    "knit-departments-api-openapi.yml",
+    "knit-employees-api-openapi.yml",
+    "knit-integrations-api-openapi.yml",
+    "knit-jobs-api-openapi.yml",
+    "knit-locations-api-openapi.yml",
+    "knit-syncs-api-openapi.yml",
+    "knit-time-off-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
