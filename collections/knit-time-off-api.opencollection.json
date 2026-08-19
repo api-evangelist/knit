@@ -1,0 +1,49 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Knit Unified Departments Time Off API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Time Off",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Time Off",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.getknit.dev/v1/time-off",
+            "params": [
+              {
+                "name": "integration_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "employee_id",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Returns a list of time-off entries from connected integrations."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

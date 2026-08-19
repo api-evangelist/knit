@@ -1,0 +1,195 @@
+{
+  "item": [
+    {
+      "id": "8ddf52fc-de3f-45f6-a426-a08bf8f846ca",
+      "name": "Time Off",
+      "description": {
+        "content": "Operations for managing time off and leave data.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "0a2c5970-10ad-4e2f-b8c6-b5eaae24f74f",
+          "name": "List Time Off",
+          "request": {
+            "name": "List Time Off",
+            "description": {
+              "content": "Returns a list of time-off entries from connected integrations.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "time-off"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "integration_id",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "employee_id",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9b7dd4e2-657e-4343-8f87-c44a9c4ee225",
+              "name": "A list of time-off entries.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "time-off"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "integration_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "employee_id",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"id\": \"string\",\n      \"employee_id\": \"string\",\n      \"type\": \"string\",\n      \"status\": \"pending\",\n      \"start_date\": \"1969-06-25\",\n      \"end_date\": \"1987-02-04\",\n      \"integration_id\": \"string\"\n    },\n    {\n      \"id\": \"string\",\n      \"employee_id\": \"string\",\n      \"type\": \"string\",\n      \"status\": \"pending\",\n      \"start_date\": \"2021-10-31\",\n      \"end_date\": \"1984-07-12\",\n      \"integration_id\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9660e6c2-4fe0-4c6d-99af-355028549ce1",
+              "name": "Unauthorized.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "time-off"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "integration_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "employee_id",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.getknit.dev/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "7d9ede71-f322-4c39-bb25-f96620e49853",
+    "name": "Knit Unified Departments Time Off API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Knit provides a unified API for B2B products, AI agents, and MCP clients to integrate with HR, recruitment, and collaboration tools. Knit handles cron jobs, rate limits, and retries for predictable data syncing at scale. The API provides standardized endpoints for accessing employee data, time-off, departments, locations, and more across multiple HRIS, ATS, and communication platforms.\n\nContact Support:\n Name: Knit Developer Support",
+      "type": "text/plain"
+    }
+  }
+}

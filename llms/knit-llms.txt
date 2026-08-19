@@ -1,0 +1,46 @@
+# Knit Documentation
+
+> Explore Knit’s unified API documentation for seamless integration with HRIS, ATS, CRM, accounting, and other SaaS apps. Includes standardized data models, authentication guides, SDKs, and webhooks to help developers build and scale integrations faster.
+
+Each section below links to its own llms.txt, which indexes every page in that section. Category links narrow to a single category.
+
+## Guides
+
+- [Guides index](https://developers.getknit.dev/docs/llms.txt): full section index
+- [Knit Basics](https://developers.getknit.dev/docs/knit-basics/llms.txt)
+- [Getting started with Knit](https://developers.getknit.dev/docs/getting-started-with-knit/llms.txt)
+- [Using Filters](https://developers.getknit.dev/docs/using-filters/llms.txt)
+- [Real Time Events Guides](https://developers.getknit.dev/docs/real-time-events-guides/llms.txt)
+- [App Implementation GUIDES](https://developers.getknit.dev/docs/app-implementation-guides/llms.txt)
+- [Settings](https://developers.getknit.dev/docs/settings/llms.txt)
+- [Knit MCP Server](https://developers.getknit.dev/docs/knit-mcp-server/llms.txt)
+- [AI Agents SDK](https://developers.getknit.dev/docs/ai-agents-sdk/llms.txt)
+
+## API Reference
+
+- [API Reference index](https://developers.getknit.dev/reference/llms.txt): full section index
+- [API Basics](https://developers.getknit.dev/reference/api-basics/llms.txt)
+- [Supported Apps on Knit](https://developers.getknit.dev/reference/supported-apps-on-knit/llms.txt)
+- [Syncs](https://developers.getknit.dev/reference/syncs/llms.txt)
+- [Sync Filters](https://developers.getknit.dev/reference/sync-filters/llms.txt)
+- [Sync Watch Fields](https://developers.getknit.dev/reference/sync-watch-fields/llms.txt)
+- [Custom Syncs](https://developers.getknit.dev/reference/custom-syncs/llms.txt)
+- [HRIS, Directory and Payroll APIs](https://developers.getknit.dev/reference/hris-directory-and-payroll-apis/llms.txt)
+- [Applicant Tracking Systems APIs](https://developers.getknit.dev/reference/applicant-tracking-systems-apis/llms.txt)
+- [Communication APIs](https://developers.getknit.dev/reference/communication-apis/llms.txt)
+- [CRM APIs](https://developers.getknit.dev/reference/crm-apis/llms.txt)
+- [Accounting APIs](https://developers.getknit.dev/reference/accounting-apis/llms.txt)
+- [Assessment APIs](https://developers.getknit.dev/reference/assessment-apis/llms.txt)
+- [Electronic signature APIs](https://developers.getknit.dev/reference/electronic-signature-apis/llms.txt)
+- [Expense Management APIs](https://developers.getknit.dev/reference/expense-management-apis/llms.txt)
+- [Subscription Management APIs](https://developers.getknit.dev/reference/subscription-management-apis/llms.txt)
+- [Calendar APIs](https://developers.getknit.dev/reference/calendar-apis/llms.txt)
+- [Meeting APIs](https://developers.getknit.dev/reference/meeting-apis/llms.txt)
+- [Ticketing APIs](https://developers.getknit.dev/reference/ticketing-apis/llms.txt)
+- [Email APIs](https://developers.getknit.dev/reference/email-apis/llms.txt)
+- [Integration Metadata](https://developers.getknit.dev/reference/integration-metadata/llms.txt)
+- [Auth UI Component](https://developers.getknit.dev/reference/auth-ui-component/llms.txt)
+- [Passthrough requests](https://developers.getknit.dev/reference/passthrough-requests/llms.txt)
+- [Real Time Events](https://developers.getknit.dev/reference/real-time-events/llms.txt)
+- [Custom Fields](https://developers.getknit.dev/reference/custom-fields/llms.txt)
+- [AI Connectors](https://developers.getknit.dev/reference/ai-connectors/llms.txt)
