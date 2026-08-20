@@ -23,6 +23,11 @@ tags:
   - B2B
   - HR Integrations
   - HRIS
+  - Unified-API
+tags_raw:
+  - B2B
+  - HR Integrations
+  - HRIS
   - Unified API
 url: https://raw.githubusercontent.com/api-evangelist/knit/refs/heads/main/apis.yml
 created: '2026-03-16'
@@ -63,6 +68,8 @@ apis:
   humanURL: https://developers.getknit.dev/
   baseURL: https://api.getknit.dev/v1
   tags:
+  - Integration
+  tags_raw:
   - Integrations
   properties:
   - type: OpenAPI
@@ -77,6 +84,8 @@ apis:
   humanURL: https://developers.getknit.dev/
   baseURL: https://api.getknit.dev/v1
   tags:
+  - Job
+  tags_raw:
   - Jobs
   properties:
   - type: OpenAPI
