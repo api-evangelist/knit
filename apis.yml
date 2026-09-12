@@ -149,6 +149,8 @@ apis:
   - type: GettingStarted
     url: https://developers.getknit.dev/
 common:
+  - type: Website
+    url: https://www.getknit.dev/
   - type: AgenticAccess
     url: agentic-access/knit-agentic-access.yml
   - type: DomainSecurity
