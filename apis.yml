@@ -112,6 +112,8 @@ apis:
   humanURL: https://developers.getknit.dev/
   baseURL: https://api.getknit.dev/v1
   tags:
+  - Location
+  tags_raw:
   - Locations
   properties:
   - type: OpenAPI
@@ -126,6 +128,8 @@ apis:
   humanURL: https://developers.getknit.dev/
   baseURL: https://api.getknit.dev/v1
   tags:
+  - Sync
+  tags_raw:
   - Syncs
   properties:
   - type: OpenAPI
