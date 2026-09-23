@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Knit Unified Departments Employees API
+  title: Knit Unified Employees API
   description: Knit provides a unified API for B2B products, AI agents, and MCP clients to integrate with HR, recruitment, and collaboration tools. Knit handles cron jobs, rate limits, and retries for predictable data syncing at scale. The API provides standardized endpoints for accessing employee data, time-off, departments, locations, and more across multiple HRIS, ATS, and communication platforms.
   version: v1
   contact:
@@ -96,6 +96,17 @@ paths:
           description: Employee not found.
 components:
   schemas:
+    Pagination:
+      type: object
+      properties:
+        page:
+          type: integer
+        page_size:
+          type: integer
+        total_count:
+          type: integer
+        total_pages:
+          type: integer
     Employee:
       type: object
       properties:
@@ -133,17 +144,6 @@ components:
           nullable: true
         integration_id:
           type: string
-    Pagination:
-      type: object
-      properties:
-        page:
-          type: integer
-        page_size:
-          type: integer
-        total_count:
-          type: integer
-        total_pages:
-          type: integer
   securitySchemes:
     apiKey:
       type: apiKey
