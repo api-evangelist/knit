@@ -96,17 +96,6 @@ paths:
           description: Employee not found.
 components:
   schemas:
-    Pagination:
-      type: object
-      properties:
-        page:
-          type: integer
-        page_size:
-          type: integer
-        total_count:
-          type: integer
-        total_pages:
-          type: integer
     Employee:
       type: object
       properties:
@@ -144,6 +133,17 @@ components:
           nullable: true
         integration_id:
           type: string
+    Pagination:
+      type: object
+      properties:
+        page:
+          type: integer
+        page_size:
+          type: integer
+        total_count:
+          type: integer
+        total_pages:
+          type: integer
   securitySchemes:
     apiKey:
       type: apiKey
