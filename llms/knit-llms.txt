@@ -16,9 +16,9 @@ Each section below links to its own llms.txt, which indexes every page in that s
 - [Knit MCP Server](https://developers.getknit.dev/docs/knit-mcp-server/llms.txt)
 - [AI Agents SDK](https://developers.getknit.dev/docs/ai-agents-sdk/llms.txt)
 
-## API Reference
+## Unified API Reference
 
-- [API Reference index](https://developers.getknit.dev/reference/llms.txt): full section index
+- [Unified API Reference index](https://developers.getknit.dev/reference/llms.txt): full section index
 - [API Basics](https://developers.getknit.dev/reference/api-basics/llms.txt)
 - [Supported Apps on Knit](https://developers.getknit.dev/reference/supported-apps-on-knit/llms.txt)
 - [Syncs](https://developers.getknit.dev/reference/syncs/llms.txt)
@@ -39,6 +39,7 @@ Each section below links to its own llms.txt, which indexes every page in that s
 - [Ticketing APIs](https://developers.getknit.dev/reference/ticketing-apis/llms.txt)
 - [Email APIs](https://developers.getknit.dev/reference/email-apis/llms.txt)
 - [Integration Metadata](https://developers.getknit.dev/reference/integration-metadata/llms.txt)
+- [Platform APIs](https://developers.getknit.dev/reference/platform-apis/llms.txt)
 - [Auth UI Component](https://developers.getknit.dev/reference/auth-ui-component/llms.txt)
 - [Passthrough requests](https://developers.getknit.dev/reference/passthrough-requests/llms.txt)
 - [Real Time Events](https://developers.getknit.dev/reference/real-time-events/llms.txt)

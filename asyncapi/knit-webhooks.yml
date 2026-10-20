@@ -1,0 +1,18 @@
+generated: '2026-10-20'
+method: searched
+generator: extract-docs-artifacts.py (local)
+source: https://developers.getknit.dev/reference/authenticating-your-apis-with-knit
+sources:
+- https://developers.getknit.dev/reference/authenticating-your-apis-with-knit
+- https://developers.getknit.dev/docs/register-webhook-url
+- https://developers.getknit.dev/docs/real-time-events-guides/llms.txt
+- https://developers.getknit.dev/reference/real-time-events/llms.txt
+description: Knit sends webhook POST requests for sync events. The handler must accept POST requests and verify the X‑Knit‑Signature header.
+events:
+- event: record.new
+  description: When a new record is encountered, e.g., a new employee added in an HRIS system or a new application/job created in an ATS system.
+delivery:
+  signature: X-Knit-Signature
+  content_type: application/json
+note: The documentation does not specify retry behavior.
+docs: https://developers.getknit.dev/reference/authenticating-your-apis-with-knit

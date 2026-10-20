@@ -1,0 +1,17 @@
+generated: '2026-10-20'
+method: searched
+generator: extract-docs-artifacts.py (local)
+source: https://developers.getknit.dev/docs/filtering-data-in-syncs-1
+sources:
+- https://developers.getknit.dev/docs/filtering-data-in-syncs-1
+- https://developers.getknit.dev/docs/filtering-data-in-apis
+- https://developers.getknit.dev/docs/getting-started-with-knit/llms.txt
+- https://developers.getknit.dev/reference/setup-custom-sync
+idempotency:
+  coverage: partial
+  header: idempotencyId
+  evidence: Body Params ... idempotencyId string
+  scope:
+  - not enumerated on the pages read
+pagination: {}
+docs: https://developers.getknit.dev/docs/filtering-data-in-syncs-1

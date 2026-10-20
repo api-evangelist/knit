@@ -1,0 +1,6 @@
+generated: '2026-10-20'
+method: probed
+generator: harvest-llms.py
+source: https://developers.getknit.dev/llms.txt
+bytes: 3668
+note: saved verbatim; the provider's own document

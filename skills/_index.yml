@@ -1,0 +1,11 @@
+generated: '2026-10-20'
+method: generated
+generator: extract-docs-artifacts.py skills (local)
+source: openapi/knit-syncs-api-openapi.yml
+skills:
+- file: skills/knit-syncs-list-and-trigger.md
+  name: knit-syncs-list-and-trigger
+  api: openapi/knit-syncs-api-openapi.yml
+  operations:
+  - listSyncs
+  - triggerSync

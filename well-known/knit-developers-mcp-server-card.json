@@ -1,0 +1,1 @@
+{"$schema":"https://static.modelcontextprotocol.io/schemas/v1/server-card.schema.json","name":"com.readme/knit","version":"1.0","title":"Knit","description":"MCP server for Knit. Lets AI agents explore this project's API reference and documentation.","remotes":[{"type":"streamable-http","url":"https://developers.getknit.dev/mcp"}]}

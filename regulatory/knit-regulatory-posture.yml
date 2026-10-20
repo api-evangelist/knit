@@ -1,0 +1,12 @@
+generated: '2026-10-20'
+method: searched
+source: https://getknit.dev/security/
+signals:
+  data_residency:
+    evidence:
+      - http_status: 200
+        fetched: "true"
+        quote: "Knit supports data residency in the US, EU, and India, so you can keep processing in the region your compliance requirements call for."
+        section: "Data residency & minimization"
+        note: Indicates supported data residency locations.
+        url: https://getknit.dev/security/

@@ -1,0 +1,43 @@
+generated: '2026-10-20'
+method: derived
+generator: derive-problem-types.py
+source:
+- openapi/knit-departments-api-openapi.yml
+- openapi/knit-employees-api-openapi.yml
+- openapi/knit-integrations-api-openapi.yml
+- openapi/knit-jobs-api-openapi.yml
+- openapi/knit-locations-api-openapi.yml
+- openapi/knit-syncs-api-openapi.yml
+- openapi/knit-time-off-api-openapi.yml
+format: custom
+envelope:
+  media_type: null
+  schema: null
+coverage:
+  operations: 9
+  statuses_declared: 4
+problems:
+- status: 400
+  title: Bad Request
+  description: Bad Request.
+  operations: 1
+  media_types: []
+  schema: null
+- status: 401
+  title: Unauthorized
+  description: Unauthorized.
+  operations: 8
+  media_types: []
+  schema: null
+- status: 404
+  title: Not Found
+  description: Employee not found.
+  operations: 1
+  media_types: []
+  schema: null
+- status: 500
+  title: Internal Server Error
+  description: Internal Server Error.
+  operations: 1
+  media_types: []
+  schema: null

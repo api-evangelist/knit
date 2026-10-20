@@ -1,10 +1,12 @@
 aid: knit
+
 name: Knit
-description: >-
-  Knit is a unified API platform for B2B products, AI agents, and MCP clients, providing integrations infrastructure for
-  HR, recruitment, and collaboration tools. Knit manages cron jobs, rate limits, and retries out of the box for
-  predictable data syncing at scale.
+
+description: Knit is a unified API platform for B2B products, AI agents, and MCP clients, providing integrations infrastructure for HR, recruitment,
+  and collaboration tools. Knit manages cron jobs, rate limits, and retries out of the box for predictable data syncing at scale.
+
 type: Index
+
 deliveryModel:
   model: unknown
   open_source: false
@@ -16,6 +18,7 @@ deliveryModel:
   - openapi
   generated: '2026-08-28'
   method: derived
+
 accessModel:
   pricing: freemium
   onboarding: self-serve
@@ -30,25 +33,155 @@ accessModel:
   - security
   generated: '2026-09-03'
   method: derived
+
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/knit.png
+
 x-docs-platform: readme
+
 x-docs-platform-confidence: high
+
 x-docs-platform-checked: 2026-10-03
+
 tags:
-  - B2B
-  - HR Integrations
-  - HRIS
-  - Unified API
+- B2B
+- HR Integrations
+- HRIS
+- Unified API
+- Integration Platform
+- API Management
+- iPaaS
+- Automation
+- SaaS Integration
+- AI Agent
+- Security Compliance - B2B - HR Integrations - HRIS - Unified API
+
 tags_raw:
-  - B2B
-  - HR Integrations
-  - HRIS
-  - Unified API
-  - Unified-API
+- B2B
+- HR Integrations
+- HRIS
+- Unified API
+- Unified-API
+
 url: https://raw.githubusercontent.com/api-evangelist/knit/refs/heads/main/apis.yml
+
 created: '2026-03-16'
+
 modified: '2026-05-19'
+
 specificationVersion: '0.23'
+
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com
+
+common:
+- type: Spectral
+  url: rules/knit-rules.yml
+- type: Spectral
+  url: rules/knit-jsonschema-spectral-rules.yml
+- type: Vocabulary
+  url: vocabulary/knit-vocabulary.yml
+- type: AgentSkill
+  url: skills/_index.yml
+- type: Webhooks
+  url: asyncapi/knit-webhooks.yml
+- type: DataModel
+  url: data-model/knit-data-model.yml
+- type: Idempotency
+  url: conventions/knit-conventions.yml
+- type: Conventions
+  url: conventions/knit-conventions.yml
+- type: Compliance
+  url: https://getknit.dev/security/
+- type: ErrorCatalog
+  url: errors/knit-problem-types.yml
+- type: Conformance
+  url: conformance/knit-conformance.yml
+- type: LLMsTxt
+  url: llms/knit-llms.txt
+- type: MCPServer
+  url: mcp/knit-mcp.yml
+- type: WellKnown
+  url: well-known/knit-well-known.yml
+- type: Hosts
+  url: hosts/knit-hosts.yml
+- type: Vendors
+  url: vendors/knit-vendors.yml
+- type: TermsOfService
+  url: https://getknit.dev/terms
+- type: Security
+  url: https://getknit.dev/security
+- type: PrivacyPolicy
+  url: https://getknit.dev/privacy-policy
+- type: Pricing
+  url: https://getknit.dev/pricing/
+- type: APIReference
+  url: https://developers.getknit.dev/reference
+- type: GettingStarted
+  url: https://developers.getknit.dev/docs/getting-started-with-knit/llms.txt
+- type: TrustCenter
+  url: security/knit-trust-center.yml
+- type: Plans
+  url: plans/knit-plans-pricing.yml
+- type: RateLimits
+  url: rate-limits/knit-rate-limits.yml
+- type: FinOps
+  url: finops/knit-finops.yml
+- type: CapabilityMap
+  url: capabilities/knit-capability-edges.yml
+  name: Knit Business Capability Map
+- type: Website
+  url: https://www.getknit.dev/
+- type: AgenticAccess
+  url: agentic-access/knit-agentic-access.yml
+- type: DomainSecurity
+  url: security/knit-domain-security.yml
+- type: Authentication
+  url: authentication/knit-authentication.yml
+- type: GitHubOrganization
+  url: https://github.com/knitapi
+- type: LinkedIn
+  url: https://www.linkedin.com/company/getknit
+- type: Portal
+  url: https://developers.getknit.dev/
+- type: Documentation
+  url: https://developers.getknit.dev/
+- type: Features
+  data:
+  - Unified API for multiple HRIS and ATS platforms
+  - Automatic cron job management for data syncing
+  - Built-in rate limiting and retry logic
+  - Standardized data models across providers
+  - MCP client and AI agent support
+  - Real-time webhook notifications
+  - Incremental sync with updated_after filtering
+- type: UseCases
+  data:
+  - Synchronizing employee data across HR platforms
+  - Building B2B integrations without managing individual provider APIs
+  - Powering AI agents with unified HR and recruitment data
+  - Automating onboarding workflows across HRIS systems
+  - Aggregating time-off and attendance data from multiple providers
+- type: Integrations
+  data:
+  - BambooHR
+  - Gusto
+  - Workday
+  - ADP
+  - Rippling
+  - Greenhouse
+  - Lever
+  - Slack
+  - Microsoft Teams
+- type: JSONSchema
+  url: json-schema/knit-unified-api-schema.json
+- type: JSONLD
+  url: json-ld/knit-context.jsonld
+- type: LlmsText
+  url: https://developers.getknit.dev/llms.txt
+- url: https://www.getknit.dev/blog/rss.xml
+  type: Blog
+
 apis:
 - aid: knit:knit-departments-api
   name: Knit Departments API
@@ -64,6 +197,8 @@ apis:
     url: https://developers.getknit.dev/
   - type: GettingStarted
     url: https://developers.getknit.dev/
+  - type: JSONSchema
+    url: json-schema/knit-department-schema.json
 - aid: knit:knit-employees-api
   name: Knit Employees API
   description: Operations for managing employee data across connected HRIS platforms.
@@ -78,6 +213,10 @@ apis:
     url: https://developers.getknit.dev/
   - type: GettingStarted
     url: https://developers.getknit.dev/
+  - type: JSONSchema
+    url: json-schema/knit-employee-schema.json
+  - type: JSONSchema
+    url: json-schema/knit-pagination-schema.json
 - aid: knit:knit-integrations-api
   name: Knit Integrations API
   description: Operations for managing connected integrations.
@@ -94,6 +233,8 @@ apis:
     url: https://developers.getknit.dev/
   - type: GettingStarted
     url: https://developers.getknit.dev/
+  - type: JSONSchema
+    url: json-schema/knit-integration-schema.json
 - aid: knit:knit-jobs-api
   name: Knit Jobs API
   description: Operations for managing job postings and applications via ATS integrations.
@@ -110,6 +251,8 @@ apis:
     url: https://developers.getknit.dev/
   - type: GettingStarted
     url: https://developers.getknit.dev/
+  - type: JSONSchema
+    url: json-schema/knit-job-schema.json
 - aid: knit:knit-locations-api
   name: Knit Locations API
   description: Operations for managing location/office data.
@@ -126,6 +269,8 @@ apis:
     url: https://developers.getknit.dev/
   - type: GettingStarted
     url: https://developers.getknit.dev/
+  - type: JSONSchema
+    url: json-schema/knit-location-schema.json
 - aid: knit:knit-syncs-api
   name: Knit Syncs API
   description: Operations for monitoring sync status and triggering syncs.
@@ -142,6 +287,8 @@ apis:
     url: https://developers.getknit.dev/
   - type: GettingStarted
     url: https://developers.getknit.dev/
+  - type: JSONSchema
+    url: json-schema/knit-sync-schema.json
 - aid: knit:knit-time-off-api
   name: Knit Time Off API
   description: Operations for managing time off and leave data.
@@ -156,67 +303,11 @@ apis:
     url: https://developers.getknit.dev/
   - type: GettingStarted
     url: https://developers.getknit.dev/
-common:
-  - type: Plans
-    url: plans/knit-plans-pricing.yml
-  - type: RateLimits
-    url: rate-limits/knit-rate-limits.yml
-  - type: FinOps
-    url: finops/knit-finops.yml
-  - type: CapabilityMap
-    url: capabilities/knit-capability-edges.yml
-    name: Knit Business Capability Map
-  - type: Website
-    url: https://www.getknit.dev/
-  - type: AgenticAccess
-    url: agentic-access/knit-agentic-access.yml
-  - type: DomainSecurity
-    url: security/knit-domain-security.yml
-  - type: Authentication
-    url: authentication/knit-authentication.yml
-  - type: GitHubOrganization
-    url: https://github.com/knitapi
-  - type: LinkedIn
-    url: https://www.linkedin.com/company/getknit
-  - type: Portal
-    url: https://developers.getknit.dev/
-  - type: Documentation
-    url: https://developers.getknit.dev/
-  - type: Features
-    data:
-      - Unified API for multiple HRIS and ATS platforms
-      - Automatic cron job management for data syncing
-      - Built-in rate limiting and retry logic
-      - Standardized data models across providers
-      - MCP client and AI agent support
-      - Real-time webhook notifications
-      - Incremental sync with updated_after filtering
-  - type: UseCases
-    data:
-      - Synchronizing employee data across HR platforms
-      - Building B2B integrations without managing individual provider APIs
-      - Powering AI agents with unified HR and recruitment data
-      - Automating onboarding workflows across HRIS systems
-      - Aggregating time-off and attendance data from multiple providers
-  - type: Integrations
-    data:
-      - BambooHR
-      - Gusto
-      - Workday
-      - ADP
-      - Rippling
-      - Greenhouse
-      - Lever
-      - Slack
-      - Microsoft Teams
   - type: JSONSchema
-    url: json-schema/knit-unified-api-schema.json
-  - type: JSONLD
-    url: json-ld/knit-context.jsonld
-  - type: LlmsText
-    url: https://developers.getknit.dev/llms.txt
-  - url: https://www.getknit.dev/blog/rss.xml
-    type: Blog
-maintainers:
-  - FN: Kin Lane
-    email: kin@apievangelist.com
+    url: json-schema/knit-time-off-schema.json
+x-enrichment:
+  date: '2026-10-20'
+  status: enriched
+  artifacts_added: 26
+  pass: modular-v1
+  engine: identity=local,contract=local,surfaces=local,docs=local,regulatory=local
