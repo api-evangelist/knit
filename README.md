@@ -1,4 +1,4 @@
-# Knit (knit)
+# Knit
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,63 +66,167 @@
 
 Knit is a unified API platform for B2B products, AI agents, and MCP clients, providing integrations infrastructure for HR, recruitment, and collaboration tools. Knit manages cron jobs, rate limits, and retries out of the box for predictable data syncing at scale.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/knit/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/knit/refs/heads/main/apis.yml)
+**Areas:** B2B · HR Integrations · HRIS · Unified API · Integration Platform · API Management · iPaaS · Automation · SaaS Integration · AI Agents
 
-## Scope
+## Knit on APIs.io
 
-- **Type:** Index
+Everything profiled for Knit is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/knit/](https://apis.io/providers/knit/)** — or go straight to one of the APIs or properties below.
 
-## Tags
+### APIs (7)
 
-- B2B
-- HR Integrations
-- HRIS
-- Unified API
+- [Knit Departments API](https://apis.io/apis/knit/knit-departments-api/) — Operations for managing department data across connected platforms.
+- [Knit Employees API](https://apis.io/apis/knit/knit-employees-api/) — Operations for managing employee data across connected HRIS platforms.
+- [Knit Integrations API](https://apis.io/apis/knit/knit-integrations-api/) — Operations for managing connected integrations.
+- [Knit Jobs API](https://apis.io/apis/knit/knit-jobs-api/) — Operations for managing job postings and applications via ATS integrations.
+- [Knit Locations API](https://apis.io/apis/knit/knit-locations-api/) — Operations for managing location/office data.
+- [Knit Syncs API](https://apis.io/apis/knit/knit-syncs-api/) — Operations for monitoring sync status and triggering syncs.
+- [Knit Time Off API](https://apis.io/apis/knit/knit-time-off-api/) — Operations for managing time off and leave data.
 
-## Timestamps
+### Published properties
 
-- **Created:** 2026-03-16
-- **Modified:** 2026-05-19
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## APIs
+#### MCP servers (1)
 
-### Knit Unified API
+Model Context Protocol servers that expose the API to agents.
 
-Knit's unified API provides standardized endpoints for connecting with multiple HR, recruitment, and chat tools in one integration. Access employee data, departments, locations, time-off records, job postings, and sync statuses through a single normalized interface.
+- [Moved to /providers/knit/](https://apis.io/servers/knit/knit/)
 
-- **Human URL:** [https://developers.getknit.dev/](https://developers.getknit.dev/)
-- **Base URL:** `https://api.getknit.dev/v1`
+#### Agentic access (1)
 
-#### Tags
+Which operations an agent can call, which act, and which need a human in the loop.
 
-- Employees
-- HR
-- Integrations
-- Recruitment
-- Unified API
+- [Knit Agentic Access](https://apis.io/agentic-access/knit/knit-agentic-access/)
 
-#### Properties
+#### JSON Schema (1)
 
+The data models the API reads and writes.
+
+- [Knit Unified API Resources](https://apis.io/schemas/knit/knit-unified-api/)
+
+#### JSON-LD (1)
+
+Linked-data contexts for the provider's vocabulary.
+
+- [Knit Context](https://apis.io/jsonld/knit/knit-context/)
+
+#### Vocabulary (1)
+
+The provider's domain terms, defined.
+
+- [Knit Unified API Vocabulary](https://apis.io/vocabularies/knit/knit-vocabulary/)
+
+#### Collections (8)
+
+Postman and Open Collection request collections.
+
+- [Knit Unified Departments API](https://apis.io/collections/knit/open-knit-departments-api/)
+- [Knit Unified Departments Employees API](https://apis.io/collections/knit/open-knit-employees-api/)
+- [Knit Unified Departments Integrations API](https://apis.io/collections/knit/open-knit-integrations-api/)
+- [Knit Unified Departments Jobs API](https://apis.io/collections/knit/open-knit-jobs-api/)
+- [Knit Unified Departments Locations API](https://apis.io/collections/knit/open-knit-locations-api/)
+- [Knit Unified Departments Syncs API](https://apis.io/collections/knit/open-knit-syncs-api/)
+- [Knit Unified Departments Time Off API](https://apis.io/collections/knit/open-knit-time-off-api/)
+- [Knit Unified API](https://apis.io/collections/knit/open-knit-unified-api/)
+
+#### Governance rules (1)
+
+Spectral rulesets for the provider's contracts.
+
+- [Knit — jsonschema rules](https://apis.io/rules/knit/knit-jsonschema-spectral-rules/)
+
+#### Security (2)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Knit Authentication](https://apis.io/security/knit/knit-authentication/)
+- [Knit Domain Security](https://apis.io/security/knit/knit-domain-security/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Knit Plans Pricing](https://apis.io/plans/knit/knit-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Knit Rate Limits](https://apis.io/rate-limits/knit/knit-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Knit Finops](https://apis.io/finops/knit/knit-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://www.getknit.dev/)
 - [Documentation](https://developers.getknit.dev/)
-- [OpenAPI](openapi/knit-unified-api-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/knit-unified-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/knit-unified-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Getting Started](https://developers.getknit.dev/)
+- [Getting started](https://developers.getknit.dev/docs/getting-started-with-knit/llms.txt)
+- [API reference](https://developers.getknit.dev/reference)
+- [Pricing](https://getknit.dev/pricing/)
+- [Blog](https://www.getknit.dev/blog/rss.xml)
+- [Security](https://getknit.dev/security)
+- [Compliance](https://getknit.dev/security/)
+- [Terms of service](https://getknit.dev/terms)
+- [Privacy policy](https://getknit.dev/privacy-policy)
+- [GitHub](https://github.com/knitapi)
 
-## Common Properties
+## API Evangelist rating
 
-- [GitHub Organization](https://github.com/knitapi)
-- [LinkedIn](https://www.linkedin.com/company/getknit)
-- [Portal](https://developers.getknit.dev/)
-- [Documentation](https://developers.getknit.dev/)
-- [Features](undefined)
-- [Use Cases](undefined)
-- [Integrations](undefined)
-- [JSON Schema](json-schema/knit-unified-api-schema.json) — [JSON Schema](https://json-schema.org/specification)
-- [JSON-LD](json-ld/knit-context.jsonld) — [JSON-LD](https://www.w3.org/TR/json-ld11/)
-- [L L Ms Txt](https://developers.getknit.dev/llms.txt)
+**Kin Score 51.6** — developing · rubric 0.25.0 · scored 2026-10-23
 
-## Maintainers
+| Facet | Score |
+|---|---|
+| Discoverability | 75.0 |
+| Contract quality | 68.2 |
+| Contract governance | 22.0 |
+| Operational transparency | 28.9 |
+| Developer ergonomics | 43.5 |
+| Access clarity | 55.3 |
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Agent readiness 38.5** — agent-ready
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | verified |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | documented (partial credit) |
+| Error Semantics | derived (partial credit) |
+| OpenAPI Examples | — |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | yes |
+| Agent Skills | derived (partial credit) |
+| Well Known Catalog | yes |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+| Pagination Ratio | — |
+| Operation Distinctiveness | distinct |
+
+**Regulatory alignment 29.4** — Employment & Payroll
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/knit/](https://apis.io/providers/knit/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Knit: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/knit/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
